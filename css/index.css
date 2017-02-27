@@ -1,0 +1,59 @@
+.book{   
+    width: 460px;   
+    height: 300px;   
+    position: relative;   
+    margin: 150px 400px;   
+    -webkit-transform-style: preserve-3d;   
+    -moz-transform-style: preserve-3d;   
+    -ms-transform-style: preserve-3d;   
+    transform-style: preserve-3d;   
+    transform: rotatex(30deg);   
+}   
+.page{   
+    width: 230px;   
+    height: 300px;   
+
+    border: 1px solid #666;   
+    position: absolute;   
+    rightright: 0;   
+    transform-origin: left;   
+    transform-style: preserve-3d;   
+    backface-visibility:hidden;   
+    font-size: 60px;   
+    text-align: center;   
+    line-height: 300px;   
+}   
+.page span{   
+    display: block;   
+    width: 100%;   
+    position: absolute;   
+    background-color: #00FFFF;   
+}   
+.page span:nth-child(2){   
+    transform: rotatey(-180deg);   
+    backface-visibility:hidden;   
+}   
+
+/*以下两个动画可以只使用第一个，animation中有reverse，可以反向执行动画，  
+    使用时需要在JS中点击上一页时添加改属性值*/  
+/*翻书下一页的动画*/  
+@keyframes page {   
+    0%{   
+        transform: rotatey(0deg);   
+    }   
+    100%{   
+        transform: rotatey(-180deg);   
+        z-index: 10;   
+    }   
+}
+
+/*翻书上一页的动画*/  
+@keyframes page1 {   
+    0%{   
+        transform: rotatey(-180deg);   
+        z-index: 10;   
+    }   
+    100%{   
+        transform: rotatey(0deg);   
+    }   
+}   
